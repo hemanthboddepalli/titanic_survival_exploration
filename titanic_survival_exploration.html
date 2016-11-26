@@ -14999,11 +14999,17 @@ Make sure to keep track of the various features and conditions you tried before 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer</strong>: Initially I have applied the features like Pclass on the male. Then I observed that certain age range were having the higher survival rate. So I have added the below condition.</p>
+<p><strong>Answer</strong>: Initially I have randomly applied the features like Pclass on the male. Then I observed that certain age range were having the higher survival rate. So I have added the below condition.</p>
 <p>(passenger['Sex'] == "male" and passenger['Pclass'] == 1 and (passenger['Age'] &gt;= 20 and passenger['Age'] &lt; 40))</p>
-<p>Then I have applied the SibSp feature on the male population under certain age with the below condition.</p>
+<p>Then I have applied the SibSp feature on the male population under certain age (&lt; 15) with the below condition.</p>
 <p>(passenger['Sex'] == "male" and passenger['SibSp'] &lt;= 2 and passenger['Age'] &lt; 15)</p>
-<p>Later I have applied few more features on female to increase the further accuracy like Pclass because the people who have paid high are having higher chances of survival.</p>
+<p>With these two conditions I was able to achieve 80% of the accuracy.</p>
+<p>Later I have applied few more features on female to increase the further accuracy like Pclass because the people who have paid high are having higher chances of survival. And also with the Parch==0, the female passengers are more likely to survive which improved the accuracy slightly. I have taken siblings feature and it has increased the accuracy further more.</p>
+<p>Below are those conditions:</p>
+<p>(passenger['Sex'] == "female" and passenger['SibSp'] &lt;= 2 and passenger['Pclass'] &lt;= 2)
+(passenger['Sex'] == "female" and passenger['Pclass'] &lt;= 2)
+(passenger['Sex'] == "female" and passenger['Parch'] == 0)</p>
+<p>The features like SibSp and Pclass are useful on both male and female passengers to improve the accuracy.</p>
 
 </div>
 </div>
