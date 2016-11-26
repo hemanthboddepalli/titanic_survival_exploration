@@ -14999,7 +14999,11 @@ Make sure to keep track of the various features and conditions you tried before 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer</strong>: I have applied the features like Pclass, Age Range, SibSp on the male which provided more than 80% of the accuracy. Then I have applied few more features on female to increase the further accuracy.</p>
+<p><strong>Answer</strong>: Initially I have applied the features like Pclass on the male. Then I observed that certain age range were having the higher survival rate. So I have added the below condition.</p>
+<p>(passenger['Sex'] == "male" and passenger['Pclass'] == 1 and (passenger['Age'] &gt;= 20 and passenger['Age'] &lt; 40))</p>
+<p>Then I have applied the SibSp feature on the male population under certain age with the below condition.</p>
+<p>(passenger['Sex'] == "male" and passenger['SibSp'] &lt;= 2 and passenger['Age'] &lt; 15)</p>
+<p>Later I have applied few more features on female to increase the further accuracy like Pclass because the people who have paid high are having higher chances of survival.</p>
 
 </div>
 </div>
